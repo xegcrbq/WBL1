@@ -15,12 +15,12 @@ func main() {
 	wg := sync.WaitGroup{}
 	for _, elem := range array {
 		wg.Add(1)
-		go func(elem int) {
+		go func(elem int) { //запускаем расчет конкурентно
 			io.WriteString(os.Stdout,
 				strconv.Itoa(elem)+"^2="+strconv.Itoa(elem*elem)+" ")
 			wg.Done()
 		}(elem)
 	}
-	wg.Wait()
+	wg.Wait() //ждем, пока все горутины не завершатся
 	fmt.Fprintln(os.Stdout, "\n")
 }

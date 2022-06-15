@@ -4,15 +4,15 @@ import "fmt"
 
 //Реализовать бинарный поиск встроенными методами языка.
 func binaryS(elem int, arr []int) bool {
-	middle := len(arr) / 2
-	if elem == arr[middle] {
+	middle := len(arr) / 2   //берем индекс элемента по середине
+	if elem == arr[middle] { //если нашли элемент
 		return true
-	} else if len(arr) == 1 {
+	} else if len(arr) == 1 { //если в массиве всего 1 элемент и он не подходит
 		return false
-	} else if elem > arr[middle] {
-		arr = arr[middle:]
-	} else if elem < arr[middle] {
-		arr = arr[:middle]
+	} else if elem > arr[middle] { //если искомый элемент больше элемента по середине
+		arr = arr[middle:] //сужаем область поиска до правой половины массива
+	} else if elem < arr[middle] { //если искомый элемент меньше элемента по середине
+		arr = arr[:middle] //сужаем область поиска до левой половины массива
 	}
 	return binaryS(elem, arr)
 }

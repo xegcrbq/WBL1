@@ -12,23 +12,23 @@ func quicksort(a []int) []int {
 		return a
 	}
 
-	left, right := 0, len(a)-1
+	left, right := 0, len(a)-1 //находим крайние индексы элементов массива
 
-	pivot := rand.Int() % len(a)
+	pivot := rand.Int() % len(a) //выбираем случайный элемент
 
-	a[pivot], a[right] = a[right], a[pivot]
+	a[pivot], a[right] = a[right], a[pivot] //ставим случайный элемент в конец массива
 
-	for i, _ := range a {
-		if a[i] < a[right] {
+	for i, _ := range a { //проходимся по всем элементам
+		if a[i] < a[right] { //если случайный элемент больше текущего, то ставим текущий в начало массива
 			a[left], a[i] = a[i], a[left]
 
-			left++
+			left++ //сдвигаем индекс начала массива
 		}
 	}
 
-	a[left], a[right] = a[right], a[left]
+	a[left], a[right] = a[right], a[left] //меняем местави случайный элемент с элементом после элементов, меньших, чем случайный
 
-	quicksort(a[:left])
+	quicksort(a[:left]) //выполняем сортировки для левой и правых частей получившегося массива
 	quicksort(a[left+1:])
 
 	return a

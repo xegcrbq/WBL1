@@ -12,9 +12,9 @@ import "fmt"
 func IsUnique(s string) bool {
 	m := make(map[rune]bool)
 	for _, r := range []rune(s) {
-		if !m[r] {
+		if !m[r] { //если значение еще не попадалось, запоминаем его
 			m[r] = true
-		} else {
+		} else { //если попалось второй раз, возвращаем, что строка не уникальна
 			return false
 		}
 	}

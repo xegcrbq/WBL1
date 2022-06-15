@@ -15,8 +15,12 @@ import (
 
 func read(id int, ch chan int) { // функция отслеживания воркеров
 	for {
-		value := <-ch
-		io.WriteString(os.Stdout, fmt.Sprintf("Worker %v readed: '%v' ", id, value))
+		value, ok := <-ch
+		if !ok { //проверка на закрытость канала
+			io.WriteString(os.Stdout, fmt.Sprintf("Worker %v channel %T closed\n", id, ch))
+			return
+		}
+		io.WriteString(os.Stdout, fmt.Sprintf("Worker %v readed: '%v'\n", id, value))
 	}
 }
 
@@ -44,8 +48,8 @@ func main() {
 			}
 		}
 	}()
-	close(ch)
+	close(ch) //закрытие канала, для завершения горутин
 	close(sigChan)
 	fmt.Print("stop")
-
+	time.Sleep(time.Second * 2)
 }

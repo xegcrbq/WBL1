@@ -9,15 +9,15 @@ import (
 //которые представлены в виде структуры
 //Point с инкапсулированными параметрами x,y и конструктором.
 
-type Point struct {
+type Point struct { //структура для точки
 	x, y float64
 }
 
-func NewPoint(x, y float64) *Point {
+func NewPoint(x, y float64) *Point { //конструктор
 	return &Point{x, y}
 }
 
-func (p1 *Point) GetDistanceToPoint(p2 *Point) float64 {
+func (p1 *Point) GetDistanceToPoint(p2 *Point) float64 { //фунцкия нахождения расстояния
 	return math.Sqrt(math.Pow(p1.x-p2.x, 2) + math.Pow(p1.y-p2.y, 2))
 }
 func main() {

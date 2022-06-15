@@ -26,7 +26,7 @@ func main() {
 		for {
 			i++
 			select {
-			case <-timeout:
+			case <-timeout: //завершение через N cекунд
 				close(ch)
 				return
 			default:

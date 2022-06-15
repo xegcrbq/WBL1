@@ -11,7 +11,7 @@ import (
 
 func group(arr []float64, step int) map[int][]float64 {
 	result := make(map[int][]float64)
-	for _, value := range arr {
+	for _, value := range arr { //группируем значения
 		result[int(math.Round(float64(int(value)/step))*float64(step))] = append(result[int(math.Round(float64(int(value)/step))*float64(step))], value)
 	}
 	return result

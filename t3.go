@@ -17,13 +17,13 @@ func main() {
 	sum := 0
 	for _, elem := range array {
 		wg.Add(1)
-		go func(elem int) {
-			m.Lock()
+		go func(elem int) { //запускаем расчет конкурентно
+			m.Lock() //блокируем запись для других горутин, чтобы избежать искажения данных
 			sum += elem * elem
 			m.Unlock()
 			wg.Done()
 		}(elem)
 	}
-	wg.Wait()
+	wg.Wait() //ждем, пока все горутины не завершатся
 	fmt.Println(sum)
 }

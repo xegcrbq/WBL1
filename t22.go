@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	bigIntA := big.NewInt(1 << 54)
+	bigIntA := big.NewInt(1 << 54) //инициализируем числа большими значениями
 	bigIntB := big.NewInt(1 << 37)
 	c := big.NewInt(0)
 	fmt.Printf("value1: %v\nvalue2: %v\n", bigIntA, bigIntB)

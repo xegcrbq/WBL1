@@ -6,7 +6,7 @@ import "fmt"
 func removeElem(index int, arr *[]int) {
 	if len(*arr) > index {
 		arrTemp := *arr
-		*arr = append(arrTemp[:index], arrTemp[index+1:]...)
+		*arr = append(arrTemp[:index], arrTemp[index+1:]...) //склеиваем 2 части слайса без i-го элемента
 	}
 }
 

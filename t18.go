@@ -13,8 +13,8 @@ type counter struct {
 }
 
 func (c *counter) increment() {
-	c.mx.Lock()
-	c.value++
+	c.mx.Lock() //блокируем переменную, для других потоков, чтобы избежать потери данных
+	c.value++   //инкреметируем переменную
 	c.mx.Unlock()
 	c.wg.Done()
 }

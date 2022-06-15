@@ -14,14 +14,14 @@ func (h human) work() {
 	fmt.Println(h.Name + " is working")
 }
 
-type action struct {
+type action struct { //наследуем action от human
 	human
 }
 
 func main() {
 	action := action{human{"Andrey", 20}}
 	fmt.Printf("Type %T Value: %#v\n", action, action)
-	fmt.Printf("action.work(): ")
+	fmt.Printf("action.work(): ") //сравниваем работу методов от action и human
 	action.work()
 	fmt.Printf("action.human.work(): ")
 	action.human.work()
