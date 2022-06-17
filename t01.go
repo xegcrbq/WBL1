@@ -20,7 +20,7 @@ func main() {
 	for range [10000]int{} {
 		a += b
 	}
-	fmt.Println(time.Since(s))
+	fmt.Println(time.Since(s)) //1.8s
 	a = ""
 	b = ""
 	for range [200]int{} {
@@ -33,7 +33,7 @@ func main() {
 	for range [10000]int{} {
 		b1.WriteString(b)
 	}
-	fmt.Println(time.Since(s))
+	fmt.Println(time.Since(s)) //1ms
 	a = ""
 	b = ""
 	for range [200]int{} {
@@ -46,7 +46,7 @@ func main() {
 	for range [10000]int{} {
 		b2.WriteString(b)
 	}
-	fmt.Println(time.Since(s))
+	fmt.Println(time.Since(s)) //2ms
 	a = ""
 	b = ""
 	for range [200]int{} {
@@ -57,7 +57,7 @@ func main() {
 	s = time.Now()
 	b3.WriteString(a)
 	b3.WriteString(strings.Repeat(b, 10000))
-	fmt.Println(time.Since(s))
+	fmt.Println(time.Since(s)) //1ms
 	a = ""
 	b = ""
 	for range [200]int{} {
@@ -68,5 +68,5 @@ func main() {
 	for range [10000]int{} {
 		a = fmt.Sprintf("%s%s", a, b)
 	}
-	fmt.Println(time.Since(s))
+	fmt.Println(time.Since(s)) //3.5s
 }

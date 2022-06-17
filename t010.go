@@ -15,5 +15,5 @@ func main() {
 	)
 	fmt.Println(*p)
 	update(p)
-	fmt.Println(*p)
+	fmt.Println(*p) // 1 1 из-за того, что в функции идет работа с копией значкения указателя
 }

@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 //14.	Что выведет данная программа и почему?
+//[b b a][a a]
+//причины аналогичны t013
 func main() {
 	slice := []string{"a", "a"}
 
